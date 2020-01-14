@@ -1,0 +1,6 @@
+D:\src\BusinessServices\ADCBusinessServicesvob\Services\Bin\Harris.Automation.ADC.Services.ListService.XML
+D:\src\BusinessServices\ADCBusinessServicesvob\Services\Bin\Harris.Automation.ADC.Services.ListService.dll
+D:\src\BusinessServices\ADCBusinessServicesvob\Services\Bin\Harris.Automation.ADC.Services.ListService.pdb
+D:\src\BusinessServices\ADCBusinessServicesvob\Services\ListService\obj\Release\ListService.csprojResolveAssemblyReference.cache
+D:\src\BusinessServices\ADCBusinessServicesvob\Services\ListService\obj\Release\Harris.Automation.ADC.Services.ListService.dll
+D:\src\BusinessServices\ADCBusinessServicesvob\Services\ListService\obj\Release\Harris.Automation.ADC.Services.ListService.pdb

@@ -1,0 +1,178 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="AdcModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="AsRun">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int64" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ServerName" Type="Edm.String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="ListNumber" Type="Edm.Int16" Nullable="false" />
+        <Property Name="OnAirDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="OnAirTime" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ADCEventId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Identifier" Type="Edm.String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="ReconcileKey" Type="Edm.String" Nullable="true" MaxLength="32" Unicode="true" FixedLength="false" />
+        <Property Name="CompileTape" Type="Edm.String" Nullable="true" MaxLength="32" Unicode="true" FixedLength="false" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="EventType" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SecondaryEventName" Type="Edm.String" Nullable="true" MaxLength="32" Unicode="true" FixedLength="false" />
+        <Property Name="ActualDuration" Type="Edm.Int32" Nullable="false" />
+        <Property Name="StartOfMedia" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Status" Type="Edm.Byte" Nullable="false" />
+        <Property Name="Device" Type="Edm.String" Nullable="true" MaxLength="32" Unicode="true" FixedLength="false" />
+        <Property Name="HardStart" Type="Edm.Boolean" Nullable="true" />
+        <Property Name="SegmentNumber" Type="Edm.Byte" Nullable="true" />
+        <Property Name="Channel" Type="Edm.Byte" Nullable="true" />
+      </EntityType>
+      <EntityType Name="MediaInfoNote">
+        <Key>
+          <PropertyRef Name="MediaInfo" />
+        </Key>
+        <Property Name="MediaInfo" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Note" Type="Edm.String" Nullable="true" MaxLength="1073741823" Unicode="true" FixedLength="false" />
+        <Property Name="NoteDateTime" Type="Edm.DateTime" Nullable="true" Precision="3" />
+        <Property Name="AdcExtendedInfo" Type="Edm.String" Nullable="true" MaxLength="1073741823" Unicode="true" FixedLength="false" />
+        <Property Name="ExtendedInfo" Type="Edm.String" Nullable="true" MaxLength="1073741823" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="MediaInfoValue" Relationship="AdcModel.FK_MediaInfo_MediaInfoNotes" FromRole="MediaInfoNote" ToRole="MediaInfo" />
+      </EntityType>
+      <EntityType Name="MediaInfo">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="BoxIdentifier" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="AltIdentifier" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="OrgIdentifier" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="UserString" Type="Edm.String" Nullable="true" MaxLength="128" Unicode="true" FixedLength="false" />
+        <Property Name="UserData1" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="UserData2" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="Operator" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="StartOfMedia" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Duration" Type="Edm.Int32" Nullable="true" />
+        <Property Name="PlayNumber" Type="Edm.Int32" Nullable="true" />
+        <Property Name="LabelType" Type="Edm.Int32" Nullable="true" />
+        <Property Name="VideoFormat" Type="Edm.Int32" Nullable="true" />
+        <Property Name="VideoQuality" Type="Edm.Int32" Nullable="true" />
+        <Property Name="AudioFormat" Type="Edm.Int32" Nullable="true" />
+        <Property Name="MadeDateTime" Type="Edm.DateTime" Nullable="true" Precision="3" />
+        <Property Name="PlayDateTime" Type="Edm.DateTime" Nullable="true" Precision="3" />
+        <Property Name="AirDateTime" Type="Edm.DateTime" Nullable="true" Precision="3" />
+        <Property Name="PurgeDateTime" Type="Edm.DateTime" Nullable="true" Precision="3" />
+        <Property Name="Version" Type="Edm.Binary" Nullable="false" MaxLength="8" FixedLength="true" ConcurrencyMode="Fixed" p8:StoreGeneratedPattern="Computed" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Identifier" Type="Edm.String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+        <Property Name="ContentId" Type="Edm.Int32" Nullable="true" />
+        <NavigationProperty Name="MediaInfoNote" Relationship="AdcModel.FK_MediaInfo_MediaInfoNotes" FromRole="MediaInfo" ToRole="MediaInfoNote" />
+        <NavigationProperty Name="SegmentInfos" Relationship="AdcModel.FK_SegmentInfos_MediaInfos" FromRole="MediaInfo" ToRole="SegmentInfo" />
+        <NavigationProperty Name="ContentTable" Relationship="AdcModel.FK_ContentTable_MediaInfo" FromRole="MediaInfo" ToRole="ContentTable" />
+      </EntityType>
+      <EntityType Name="SegmentInfoNote">
+        <Key>
+          <PropertyRef Name="SegmentInfo" />
+        </Key>
+        <Property Name="SegmentInfo" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Note" Type="Edm.String" Nullable="true" MaxLength="1073741823" Unicode="true" FixedLength="false" />
+        <Property Name="NoteDateTime" Type="Edm.DateTime" Nullable="true" Precision="3" />
+        <Property Name="AdcExtendedInfo" Type="Edm.String" Nullable="true" MaxLength="1073741823" Unicode="true" FixedLength="false" />
+        <Property Name="ExtendedInfo" Type="Edm.String" Nullable="true" MaxLength="1073741823" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="SegmentInfoValue" Relationship="AdcModel.FK_SegmentInfo_SegmentInfoNotes" FromRole="SegmentInfoNote" ToRole="SegmentInfo" />
+      </EntityType>
+      <EntityType Name="SegmentInfo">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="SegHeader" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SegmentNum" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SegmentType" Type="Edm.Int32" Nullable="false" />
+        <Property Name="StartOfMedia" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Duration" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="MediaInfo" Relationship="AdcModel.FK_SegmentInfos_MediaInfos" FromRole="SegmentInfo" ToRole="MediaInfo" />
+        <NavigationProperty Name="SegmentInfoNote" Relationship="AdcModel.FK_SegmentInfo_SegmentInfoNotes" FromRole="SegmentInfo" ToRole="SegmentInfoNote" />
+      </EntityType>
+      <EntityType Name="ContentTable">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Content" Type="Edm.String" Nullable="false" MaxLength="32" Unicode="true" />
+      </EntityType>
+      <Association Name="FK_MediaInfo_MediaInfoNotes">
+        <End Role="MediaInfo" Type="AdcModel.MediaInfo" Multiplicity="1" />
+        <End Role="MediaInfoNote" Type="AdcModel.MediaInfoNote" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="MediaInfo">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="MediaInfoNote">
+            <PropertyRef Name="MediaInfo" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_SegmentInfos_MediaInfos">
+        <End Role="MediaInfo" Type="AdcModel.MediaInfo" Multiplicity="1" />
+        <End Role="SegmentInfo" Type="AdcModel.SegmentInfo" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="MediaInfo">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="SegmentInfo">
+            <PropertyRef Name="SegHeader" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_SegmentInfo_SegmentInfoNotes">
+        <End Role="SegmentInfo" Type="AdcModel.SegmentInfo" Multiplicity="1" />
+        <End Role="SegmentInfoNote" Type="AdcModel.SegmentInfoNote" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="SegmentInfo">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="SegmentInfoNote">
+            <PropertyRef Name="SegmentInfo" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_ContentTable_MediaInfo">
+        <End Role="ContentTable" Type="AdcModel.ContentTable" Multiplicity="0..1" />
+        <End Role="MediaInfo" Type="AdcModel.MediaInfo" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="ContentTable">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="MediaInfo">
+            <PropertyRef Name="ContentId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="Harris.Automation.ADC.Services.ADCDataService" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="AdcModelContainer" p7:LazyLoadingEnabled="false" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="AsRuns" EntityType="AdcModel.AsRun" />
+        <EntitySet Name="MediaInfoNotes" EntityType="AdcModel.MediaInfoNote" />
+        <EntitySet Name="MediaInfos" EntityType="AdcModel.MediaInfo" />
+        <EntitySet Name="SegmentInfoNotes" EntityType="AdcModel.SegmentInfoNote" />
+        <EntitySet Name="SegmentInfos" EntityType="AdcModel.SegmentInfo" />
+        <EntitySet Name="ContentTables" EntityType="AdcModel.ContentTable" />
+        <AssociationSet Name="FK_MediaInfo_MediaInfoNotes" Association="AdcModel.FK_MediaInfo_MediaInfoNotes">
+          <End Role="MediaInfo" EntitySet="MediaInfos" />
+          <End Role="MediaInfoNote" EntitySet="MediaInfoNotes" />
+        </AssociationSet>
+        <AssociationSet Name="FK_SegmentInfos_MediaInfos" Association="AdcModel.FK_SegmentInfos_MediaInfos">
+          <End Role="MediaInfo" EntitySet="MediaInfos" />
+          <End Role="SegmentInfo" EntitySet="SegmentInfos" />
+        </AssociationSet>
+        <AssociationSet Name="FK_SegmentInfo_SegmentInfoNotes" Association="AdcModel.FK_SegmentInfo_SegmentInfoNotes">
+          <End Role="SegmentInfo" EntitySet="SegmentInfos" />
+          <End Role="SegmentInfoNote" EntitySet="SegmentInfoNotes" />
+        </AssociationSet>
+        <AssociationSet Name="ContentTableMediaInfo" Association="AdcModel.FK_ContentTable_MediaInfo">
+          <End Role="ContentTable" EntitySet="ContentTables" />
+          <End Role="MediaInfo" EntitySet="MediaInfos" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

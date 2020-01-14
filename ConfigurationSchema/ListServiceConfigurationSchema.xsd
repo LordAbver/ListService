@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://Harris/Automation/ADC/Services/ListService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:adc="http://Harris/Automation/ADC/Services" targetNamespace="http://Harris/Automation/ADC/Services/ListService" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://Harris/Automation/ADC/Services" schemaLocation="..\..\Common\ConfigurationSchema\ConfigurationSchema.xsd"/>
+	<xs:element name="ListServiceConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ADCConnectionOptions" type="adc:ADCConnectionParameters"/>
+        <xs:element name="CommercialContentIdentifiers" type="xs:normalizedString" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="DataServiceConnectionOptions" type="adc:DataServiceConnectionParameters"/>
+      </xs:sequence>
+    </xs:complexType>
+	</xs:element>
+</xs:schema>
